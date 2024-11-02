@@ -1,0 +1,35 @@
+package medical;
+
+public class Data {
+	
+	private String Pname;
+	
+	private String disease;
+
+	public String getPname() {
+		return Pname;
+	}
+
+	public void setPname(String pname) {
+		Pname = pname;
+	}
+
+	public String getDisease() {
+		return disease;
+	}
+
+	public void setDisease(String disease) {
+		this.disease = disease;
+	}
+
+	@Override
+	public String toString() {
+		return "Data [Pname=" + Pname + ", disease=" + disease + ", getPname()=" + getPname() + ", getDisease()="
+				+ getDisease() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ super.toString() + "]";
+	}
+	
+	
+	
+
+}

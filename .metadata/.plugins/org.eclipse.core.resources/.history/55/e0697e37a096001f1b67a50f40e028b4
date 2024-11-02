@@ -1,0 +1,105 @@
+package Details;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+public class Assessment {
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<Integer, Student> obj = new HashMap<>();
+        int id = 1;
+
+        while (true) {
+            System.out.println("1. Add Student");
+            System.out.println("2. Update Student");
+            System.out.println("3. Delete Student");
+            System.out.println("4. Search for Student");
+            System.out.println("5. Display All Students");
+            System.out.println("6. Exit");
+            System.out.println("Enter your option");
+
+            int option = in.nextInt();
+            in.nextLine(); 
+
+            switch (option) {
+                case 1: {
+                    System.out.println("Enter Student Name:");
+                    String name = in.nextLine(); 
+                    System.out.println("Enter Student Age:");
+                    int age = in.nextInt(); 
+                    System.out.println("Enter Student Grade:");
+                    String grade = in.next();
+                    obj.put(id,new Student(name,age,grade));
+                    System.out.println(name + " is saved successfully ");
+                    id++; 
+                    break;
+                }
+                case 2: {
+                    System.out.println("Enter ID to update:");
+                    int updateId = in.nextInt();                   
+                    if (obj.containsKey(updateId)) {
+                        System.out.println("Enter new name:");
+                        String newName = in.nextLine();
+                        System.out.println("Enter new Grade :");
+                        String newGrade=in.nextLine();
+                        in.nextLine();
+                        System.out.println("Enter new Age");
+                        int newAge=in.nextInt();
+                        obj.put(updateId, new Student(newName,newAge,newGrade)); 
+                        System.out.println("Updated successfully to " + newName);
+                    } else {
+                        System.out.println("ID is not present in the data.");
+                    }
+                    break;
+                }
+                case 3: {
+                    System.out.println("Enter ID to delete:");
+                    int deleteId = in.nextInt();
+                    if (obj.containsKey(deleteId)) {
+                        obj.remove(deleteId);
+                        System.out.println( deleteId + " is deleted successfully.");
+                    } else {
+                        System.out.println("Invalid ID.");
+                    }
+                    break;
+                }
+                case 4: {
+                    System.out.println("Enter ID to search:");
+                    int searchId = in.nextInt();
+                    for(Entry<Integer, Student> r:obj.entrySet()) {
+                    	Student student=r.getValue();
+
+                    	if(searchId==r.getKey()) {
+                    		System.out.println("Name :"+student.getName()+" Age :"+student.getAge()+" Grade :"+student.getGrade());
+                    	}
+                    	else {
+                    		System.out.println("Student id not found");
+                    	}
+                    }
+                    break;
+                }
+                case 5: {
+                    System.out.println("All Students:");
+                    if (obj.isEmpty()) {
+                        System.out.println("No students in the record.");
+                    } else {
+                        for (Entry<Integer, Student> entry : obj.entrySet()) {
+                        	Student student=entry.getValue();
+                            System.out.println("ID: " + entry.getKey() + " Name: "+student.getName()+" Age :"+student.getAge()+" Grade :"+student.getGrade());
+                        }
+                    }
+                    break;
+                }
+                case 6: {
+                    System.out.println("Exiting the program.");
+                    System.exit(0);
+                    return;
+                }
+            
+                }
+            }
+        }
+    
+}

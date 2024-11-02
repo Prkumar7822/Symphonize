@@ -1,0 +1,20 @@
+package java_training;
+
+import java.util.HashSet;
+import java.util.Set;
+import java.util.StringTokenizer;
+
+public class Remove_Dup {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s="I love to to coding";
+		StringTokenizer obj=new StringTokenizer(" ");
+		
+		System.out.println(obj);
+//		Set<String> obj1=new HashSet<String>();
+//		obj1.add
+
+	}
+
+}

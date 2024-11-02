@@ -1,0 +1,29 @@
+package java_training;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Digit_to_words {
+
+	public static void main(String[] args) {
+		
+		Map<Integer, String> obj=new HashMap<Integer, String>();
+		
+		Scanner in=new Scanner(System.in);
+		
+		obj.put(2, "abc");
+		obj.put(2, "def");
+		obj.put(3, "ghi");
+		obj.put(4, "jkl");
+		obj.put(5, "mno");
+		obj.put(6, "pqrs");
+		obj.put(7, "tuv");
+		obj.put(8, "wxyz");
+		
+		int p = in.nextInt();
+		
+		
+	}
+
+}

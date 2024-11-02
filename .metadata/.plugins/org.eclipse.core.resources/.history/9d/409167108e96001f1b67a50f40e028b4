@@ -1,0 +1,100 @@
+package Details;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Assessment {
+    
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        Map<Integer, String> obj = new HashMap<>();
+        int id = 1;
+
+        while (true) {
+            System.out.println("\nMenu:");
+            System.out.println("1. Add Student");
+            System.out.println("2. Update Student");
+            System.out.println("3. Delete Student");
+            System.out.println("4. Search for Student");
+            System.out.println("5. Display All Students");
+            System.out.println("6. Exit");
+
+            int option = in.nextInt();
+            in.nextLine(); // Consume the newline character
+
+            switch (option) {
+                case 1: {
+                    System.out.println("Enter Student Name:");
+                    String name = in.nextLine(); // Read the student name
+                    System.out.println("Enter Student Age:");
+                    int age = in.nextInt(); // Read the student age
+                    System.out.println("Enter Student Grade:");
+                    String grade = in.next(); // Read the student grade
+
+                    // You may want to store age and grade in the map as well
+                    // For now, let's store only the name with the ID
+                    obj.put(id, name);
+                    System.out.println(name + " is saved successfully with ID " + id);
+                    id++; // Increment the ID for the next student
+                    break;
+                }
+                case 2: {
+                    System.out.println("Enter ID to update:");
+                    int updateId = in.nextInt();
+                    in.nextLine(); // Consume the newline character
+
+                    if (obj.containsKey(updateId)) {
+                        System.out.println("Enter new name:");
+                        String newName = in.nextLine();
+                        obj.put(updateId, newName); // Update the name
+                        System.out.println("Updated successfully to " + newName);
+                    } else {
+                        System.out.println("ID is not present in the data.");
+                    }
+                    break;
+                }
+                case 3: {
+                    System.out.println("Enter ID to delete:");
+                    int deleteId = in.nextInt();
+                    if (obj.containsKey(deleteId)) {
+                        obj.remove(deleteId); // Remove the student by ID
+                        System.out.println("Student with ID " + deleteId + " is deleted successfully.");
+                    } else {
+                        System.out.println("Invalid ID.");
+                    }
+                    break;
+                }
+                case 4: {
+                    System.out.println("Enter ID to search:");
+                    int searchId = in.nextInt();
+                    if (obj.containsKey(searchId)) {
+                        System.out.println("Student Found: ID " + searchId + ", Name: " + obj.get(searchId));
+                    } else {
+                        System.out.println("No data found for ID " + searchId);
+                    }
+                    break;
+                }
+                case 5: {
+                    System.out.println("All Students:");
+                    if (obj.isEmpty()) {
+                        System.out.println("No students in the record.");
+                    } else {
+                        for (Map.Entry<Integer, String> entry : obj.entrySet()) {
+                            System.out.println("ID: " + entry.getKey() + ", Name: " + entry.getValue());
+                        }
+                    }
+                    break;
+                }
+                case 6: {
+                    System.out.println("Exiting the program.");
+                    in.close(); // Closing the scanner
+                    return; // Exiting the program
+                }
+                default: {
+                    System.out.println("Invalid option. Please try again.");
+                    break;
+                }
+            }
+        }
+    }
+}
