@@ -1,51 +1,60 @@
 package com.reallogin.Reallogin.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 @Entity
 public class Login_model {
-	@Id
-	private String username;
-	
-	private String password;
+	 	@Id
+	    @GeneratedValue(strategy = GenerationType.AUTO)
+	    private Long id;
 
-	
-	
-	
-	
-	public Login_model(String username, String password) {
-		super();
-		this.username = username;
-		this.password = password;
-	}
-	
+	    @NotBlank(message = "Username is required")
+	    @Email(message = "Username must be a valid email")
+	    @Column(unique = true)
+	    private String username;
 
-	public Login_model() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	    @NotBlank(message = "Password is required")
+	    private String password;
 
+	    // Constructors
+	    public Login_model() {
+	    }
 
-	public String getUsername() {
-		return username;
-	}
+	    public Login_model(String username, String password) {
+	        this.username = username;
+	        this.password = password;
+	    }
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	    // Getters and Setters
+	    public Long getId() {
+	        return id;
+	    }
 
-	public String getPassword() {
-		return password;
-	}
+	    public void setId(Long id) {
+	        this.id = id;
+	    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}}
+	    public String getUsername() {
+	        return username;
+	    }
+
+	    public void setUsername(String username) {
+	        this.username = username;
+	    }
+
+	    public String getPassword() {
+	        return password;
+	    }
+
+	    public void setPassword(String password) {
+	        this.password = password;
+	    }
+}
 	
 	
-	
-	
-	
-
-
 	
