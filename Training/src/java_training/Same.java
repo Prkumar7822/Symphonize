@@ -1,7 +1,7 @@
 package java_training;
 
 public class Same {
-public static boolean main(String[] args) {
+public static void main(String[] args) {
 	boolean b=true;
 
 	String s="aaa";
@@ -14,6 +14,5 @@ public static boolean main(String[] args) {
 			
 		}
 	}
-	return b;
-	
+System.out.println(b);	
 }}

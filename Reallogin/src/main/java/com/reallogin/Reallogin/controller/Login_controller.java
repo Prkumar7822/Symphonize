@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.reallogin.Reallogin.exception.MycustomeException;
 import com.reallogin.Reallogin.model.Login_model;
 import com.reallogin.Reallogin.service.Login_service;
 
@@ -18,13 +18,12 @@ public class Login_controller {
     private Login_service userService;
 
     @PostMapping("/register")
-    public String register(@RequestBody Login_model user) {
-        userService.registerUser(user);
-        return "User registered successfully!";  
+    public String register(@RequestBody Login_model user) throws MycustomeException {
+       return  userService.registerUser(user);
     }
 
     @PostMapping("/login")
-    public String login(@RequestBody Login_model user) {
+    public String login(@RequestBody Login_model user) throws MycustomeException {
         return userService.loginUser(user.getUsername(),user.getPassword());
     }
 }
