@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 @Entity
 public class Login_model {
 	 	@Id
@@ -19,6 +20,7 @@ public class Login_model {
 	    private String username;
 
 	    @NotBlank(message = "Password is required")
+	    @NotBlank(message = "Password is mandatory")
 	    private String password;
 
 	    // Constructors

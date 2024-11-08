@@ -1,6 +1,7 @@
 package com.reallogin.Reallogin.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.reallogin.Reallogin.exception.MycustomeException;
@@ -16,21 +17,21 @@ public class Login_service {
 
     @Autowired
     private Login_Repo loginRepo;
+    
 
-    private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+//    private static final String EMAIL_REGEX = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 
-    private boolean isValidEmail(String username) {
-        Pattern pattern = Pattern.compile(EMAIL_REGEX);
-        Matcher matcher = pattern.matcher(username);
-        return matcher.matches();
-    }
-
+//    private boolean isValidEmail(String username) {
+//        Pattern pattern = Pattern.compile(EMAIL_REGEX);
+//        Matcher matcher = pattern.matcher(username);
+//        return matcher.matches();
+//    }
+// @Autowired
+    private PasswordEncoder passwordEncoder;
+    
+     
     public String registerUser(Login_model user) throws MycustomeException {
-        if (!isValidEmail(user.getUsername())) {
-            throw new MycustomeException("Invalid email");
-//        	return "Invalid email";
-        }
-
+    	
         Optional<Login_model> existingUser = loginRepo.findByUsername(user.getUsername());
 
         if(existingUser.isPresent()) {
@@ -41,6 +42,7 @@ public class Login_service {
         	throw new MycustomeException("Password must be contain 6 places");
         }
         else {
+//        	user.setPassword(passwordEncoder.encode(user.getPassword()));
             loginRepo.save(user);
             throw new MycustomeException("User registered succesfully");
 //            return "User registered succesful";

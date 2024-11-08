@@ -10,6 +10,8 @@ import com.reallogin.Reallogin.exception.MycustomeException;
 import com.reallogin.Reallogin.model.Login_model;
 import com.reallogin.Reallogin.service.Login_service;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("Login")
 public class Login_controller {
@@ -18,7 +20,7 @@ public class Login_controller {
     private Login_service userService;
 
     @PostMapping("/register")
-    public String register(@RequestBody Login_model user) throws MycustomeException {
+    public String register(@Valid @RequestBody Login_model user) throws MycustomeException {
        return  userService.registerUser(user);
     }
 

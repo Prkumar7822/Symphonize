@@ -1,7 +1,0 @@
-package medical;
-
-public class mycustomException extends Exception {
-	public MyCustomException(String message) {
-        super(message);
-
-}

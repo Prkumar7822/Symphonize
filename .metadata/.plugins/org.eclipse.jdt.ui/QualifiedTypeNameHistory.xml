@@ -55,4 +55,5 @@
     <fullyQualifiedTypeName name="com.reallogin.Reallogin.model.Login_model"/>
     <fullyQualifiedTypeName name="com.reallogin.Reallogin.exception.MycustomeException"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="jakarta.validation.Valid"/>
 </qualifiedTypeNameHistroy>
