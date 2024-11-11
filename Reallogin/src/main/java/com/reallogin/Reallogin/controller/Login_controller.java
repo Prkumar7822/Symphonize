@@ -13,7 +13,7 @@ import com.reallogin.Reallogin.service.Login_service;
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("Login")
+@RequestMapping("/Login")
 public class Login_controller {
 
     @Autowired

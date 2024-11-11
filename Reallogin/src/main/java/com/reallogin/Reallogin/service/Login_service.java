@@ -27,7 +27,7 @@ public class Login_service {
 //        return matcher.matches();
 //    }
 // @Autowired
-    private PasswordEncoder passwordEncoder;
+//    private PasswordEncoder passwordEncoder;
     
      
     public String registerUser(Login_model user) throws MycustomeException {
@@ -44,8 +44,8 @@ public class Login_service {
         else {
 //        	user.setPassword(passwordEncoder.encode(user.getPassword()));
             loginRepo.save(user);
-            throw new MycustomeException("User registered succesfully");
-//            return "User registered succesful";
+//            throw new MycustomeException("User registered succesfully");
+            return "User registered succesfully";
         }
     }
 
@@ -60,12 +60,12 @@ public class Login_service {
         Login_model user = userOpt.get();
 
         if (user.getPassword().equals(password)) {
-//            return "Login successful!";
-            throw new MycustomeException("User not found");
+            return "Login Succesfull";
+//            throw new MycustomeException("Login Succesfull");
         }
          else {
 //            return "Invalid password!";
-            throw new MycustomeException("User not found");
+            throw new MycustomeException("invalid password");
         }
         }
     }
