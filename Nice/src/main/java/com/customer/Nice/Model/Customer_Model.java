@@ -13,7 +13,7 @@ public class Customer_Model {
 	
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+//	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long cid;
 	
 	private String cname;
