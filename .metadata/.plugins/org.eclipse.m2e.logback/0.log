@@ -5470,3 +5470,6 @@ org.eclipse.core.runtime.CoreException: Launch configuration DtoApplication refe
 2024-11-12 18:23:06,539 [Worker-142: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2024-11-12 18:23:06,546 [Worker-142: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
 2024-11-12 18:23:06,550 [Worker-142: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ell\eclipse-workspace\Nice\src\test\resources
+2024-11-12 18:27:59,028 [Worker-144: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2024-11-12 18:27:59,035 [Worker-144: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src\main\resources to target\classes
+2024-11-12 18:27:59,039 [Worker-144: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\ell\eclipse-workspace\Nice\src\test\resources
