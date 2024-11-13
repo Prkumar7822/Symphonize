@@ -23,7 +23,7 @@ public class Customer_Model {
 	private String cname;
 	
     @Size(min = 10, max = 10, message = "Phone number must be exactly 10 digits")
-	@Column(unique = true)
+    	@Column(unique = true)
 	private String cnumber;
 	
     @Size(min = 12, max = 12, message = "Adhar number must be exactly 12 digits")
