@@ -19,9 +19,7 @@ public class User_service {
 	private User_repo repo;
 	
 	public User_dto Usertodto(User user) {
-		User_dto dto= new User_dto();
-		
-		
+		User_dto dto= new User_dto();	
 		dto.setName(user.getName());
 		dto.setEmail(user.getEmail());
 		return dto;

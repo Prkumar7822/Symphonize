@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.customer.Nice.Model.Hotel_Model;
@@ -39,6 +41,16 @@ public class Hotel_service {
 	            return "Room type not available";
 	        }
 		
+	}
+
+	
+
+	public String getbill(int cid) {
+		
+	Hotel_Model hotel =	reposit.getById(cid);
+		
+		return "Your bill is :"+hotel.getCost();
+//		return new ResponseEntity<>(hotel,HttpStatus.OK);
 	}
 	
 	
