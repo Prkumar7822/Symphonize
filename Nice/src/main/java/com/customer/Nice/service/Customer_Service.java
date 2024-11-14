@@ -2,6 +2,7 @@ package com.customer.Nice.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -80,22 +81,32 @@ public class Customer_Service {
 	}
 	
 	
-	public ResponseEntity<Customer_Model> Getcustomer(long cid){
-		Optional<Customer_Model> obj=repo.findById(cid);
-//		Customer_Model mod=obj.get();
-		if(obj.isPresent()) {
-//			Customer_Model obj1=new Customer_Model();
-			return new ResponseEntity<>(obj.get(),HttpStatus.OK);
-		}
-		else {
-			throw new Mycustomexception("Cid is not present");
-		}
+	public ResponseEntity<Customer_dto> Getcustomer(long cid) {
+	    Optional<Customer_Model> obj = repo.findById(cid);
+
+	    if (obj.isPresent()) {
+	        Customer_Model model = obj.get();
+	        Customer_dto dto = new Customer_dto();
+	        dto.setCid(model.getCid());
+	        dto.setCname(model.getCname());
+	        return new ResponseEntity<>(dto, HttpStatus.OK);
+	    } else {
+	        throw new Mycustomexception("Cid is not present");
+	    }
 	}
 	
 	
-	public ResponseEntity<List<Customer_Model>> getcustomers(){
-		List<Customer_Model> obj=repo.findAll();
-		return new ResponseEntity<>(obj,HttpStatus.OK);
+	public ResponseEntity<List<Customer_dto>> getcustomers() {
+	    List<Customer_Model> customers = repo.findAll();
+	    
+	    List<Customer_dto> customerDtos = customers.stream().map(customer -> {
+	        Customer_dto dto = new Customer_dto();
+	        dto.setCid(customer.getCid());
+	        dto.setCname(customer.getCname());
+	        return dto;
+	    }).collect(Collectors.toList());
+	    
+	    return new ResponseEntity<>(customerDtos, HttpStatus.OK);
 	}
 	
 

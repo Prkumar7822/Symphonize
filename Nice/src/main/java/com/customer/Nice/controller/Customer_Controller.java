@@ -48,12 +48,12 @@ public class Customer_Controller {
 	}
 	
 	@GetMapping("/get/{cid}")
-	public ResponseEntity<Customer_Model> Getcustomer(@PathVariable  Long cid){
+	public ResponseEntity<Customer_dto> Getcustomer(@PathVariable  Long cid){
 		return service.Getcustomer(cid);
 	}
 	
 	@GetMapping("/getall")
-	public ResponseEntity<List<Customer_Model>> getallcustomers(){
+	public ResponseEntity<List<Customer_dto>> getallcustomers(){
 		return service.getcustomers();
 	}
 	
